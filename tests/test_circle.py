@@ -11,8 +11,8 @@ class TestCircle:
                              [
                                  (1, 6.28, 3.14),
                                  (10, 62.83, 314.16),
-                                 (50, 314.16, 7853.98),
-                             ])
+                                 (0.5, 3.14, 0.79)
+                             ], ids=["min", "int", "float"])
     def test_circle(self, radius, perimeter, area):
         """
         Проверка вычисления площади и периметра для фигуры "Круг"
@@ -25,7 +25,7 @@ class TestCircle:
     @pytest.mark.parametrize('radius',
                              [
                                  -1, 0,
-                             ])
+                             ], ids=["negative", "null"])
     def test_circle_negative(self, radius):
         """
         Проверка вывода ошибки создания фигуры "Круг"
@@ -36,7 +36,7 @@ class TestCircle:
     @pytest.mark.parametrize('radius, radius1, result',
                              [
                                  (10, 50, 8168.14),
-                             ])
+                             ], ids=['add_area_circle_w_circle'])
     def test_add_area_circle(self, radius, radius1, result):
         """
         Проверка вычисления суммы площадей для фигуры "Круг"
@@ -47,8 +47,8 @@ class TestCircle:
 
     @pytest.mark.parametrize('radius, side_a1, side_b1, result',
                              [
-                                 (10, 2, 10, 334.16),
-                             ])
+                                 (10, 2, 10, 334.16)
+                             ], ids=['add_area_circle_w_rectangle'])
     def test_add_area_circle_w_rectangle(self, radius, side_a1, side_b1, result):
         """
         Проверка вычисления суммы площадей для фигур "Круг" и "Прямоугольник"
@@ -60,7 +60,7 @@ class TestCircle:
     @pytest.mark.parametrize('radius, side_a1, result',
                              [
                                  (10, 10, 414.16),
-                             ])
+                             ], ids=['add_area_circle_w_square'])
     def test_add_area_circle_w_square(self, radius, side_a1, result):
         """
         Проверка вычисления суммы площадей для фигур "Круг" и "Квадрат"
@@ -72,7 +72,7 @@ class TestCircle:
     @pytest.mark.parametrize('radius, side_a1, side_b1, side_c1, result',
                              [
                                  (10, 10, 15, 20, 386.78),
-                             ])
+                             ], ids=['add_area_circle_w_triangle'])
     def test_add_area_circle_w_triangle(self, radius, side_a1, side_b1, side_c1, result):
         """
         Проверка вычисления суммы площадей для фигур "Круг" и "Треугольник"
@@ -83,8 +83,8 @@ class TestCircle:
 
     @pytest.mark.parametrize('radius',
                              [
-                                 10,
-                             ])
+                                 10
+                             ], ids=['add_area_circle_w_negative'])
     def test_add_area_circle_negative(self, radius):
         """
         Проверка вывода ошибки вычисления суммы площадей для фигуры "Круг"
