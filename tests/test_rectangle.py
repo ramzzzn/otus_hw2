@@ -11,8 +11,8 @@ class TestRectangle:
                              [
                                  (1, 2, 6, 2),
                                  (10, 20, 60, 200),
-                                 (50, 100, 300, 5000),
-                             ])
+                                 (0.5, 0.5, 2, 0.25),
+                             ], ids=["min", "int", "float"])
     def test_rectangle(self, side_a, side_b, perimeter, area):
         """
         Проверка вычисления площади и периметра для фигуры "Прямоугольник"
@@ -28,7 +28,7 @@ class TestRectangle:
                                  (0, 0),
                                  (8, 0),
                                  (0, 9),
-                             ])
+                             ], ids=["negative", "null", "null", "null"])
     def test_rectangle_negative(self, side_a, side_b):
         """
         Проверка вывода ошибки создания фигуры "Прямоугольник"
@@ -39,7 +39,7 @@ class TestRectangle:
     @pytest.mark.parametrize('side_a, side_b, side_a1, side_b1, result',
                              [
                                  (10, 2, 10, 20, 220),
-                             ])
+                             ], ids=['add_area_rectangle_w_rectangle'])
     def test_add_area_rectangle(self, side_a, side_b, side_a1, side_b1, result):
         """
         Проверка вычисления суммы площадей для фигуры "Прямоугольник"
@@ -51,7 +51,7 @@ class TestRectangle:
     @pytest.mark.parametrize('side_a, side_b, side_a1, result',
                              [
                                  (10, 2, 10, 120),
-                             ])
+                             ], ids=['add_area_rectangle_w_square'])
     def test_add_area_rectangle_w_square(self, side_a, side_b, side_a1, result):
         """
         Проверка вычисления суммы площадей для фигур "Прямоугольник" и "Квадрат"
@@ -63,7 +63,7 @@ class TestRectangle:
     @pytest.mark.parametrize('side_a, side_b, radius, result',
                              [
                                  (10, 2, 10, 334.16),
-                             ])
+                             ], ids=['add_area_rectangle_w_circle'])
     def test_add_area_rectangle_w_circle(self, side_a, side_b, radius, result):
         """
         Проверка вычисления суммы площадей для фигур "Прямоугольник" и "Круг"
@@ -75,7 +75,7 @@ class TestRectangle:
     @pytest.mark.parametrize('side_a, side_b, side_a1, side_b1, side_c1, result',
                              [
                                  (10, 2, 10, 15, 20, 92.62),
-                             ])
+                             ], ids=['add_area_rectangle_w_triangle'])
     def test_add_area_rectangle_w_triangle(self, side_a, side_b, side_a1, side_b1, side_c1, result):
         """
         Проверка вычисления суммы площадей для фигур "Прямоугольник" и "Треугольник"
@@ -87,7 +87,7 @@ class TestRectangle:
     @pytest.mark.parametrize('side_a, side_b',
                              [
                                  (10, 2),
-                             ])
+                             ], ids=['add_area_rectangle_w_negative'])
     def test_add_area_rectangle_negative(self, side_a, side_b):
         """
         Проверка вывода ошибки вычисления суммы площадей для фигуры "Прямоугольник"

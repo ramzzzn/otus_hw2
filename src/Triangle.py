@@ -13,7 +13,7 @@ class Triangle(Figure):
         self.name = 'Triangle'
 
     def calculate_perimeter(self):
-        return self.side_a + self.side_b + self.side_c
+        return round((self.side_a + self.side_b + self.side_c), 2)
 
     def calculate_area(self):
         p = self.calculate_perimeter() / 2
